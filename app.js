@@ -40,6 +40,8 @@ function ogrenciTanimla() {
 }
 
 function bagislariGoster() {
+    tumYazilariSil()
+    temizle()
     let toplamBagis = toplamBagisiBul()
     yazdir("----------------------------------------------")
     yazdir("Toplam bağış miktarı : " + toplamBagis)
