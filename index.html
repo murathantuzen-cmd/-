@@ -19,16 +19,14 @@
             border: 1px solid #ccc;
             margin: 4px;
         }
-
-        /* Kutulara odaklanıldığında güzel dursun */
         input:focus {
-            border-color: #007bff;
+            border-color: #0044ff;
             outline: none;
         }
 
         /* Buton stilleri */
         button {
-            background-color: #007bff;
+            background-color: #15ff00;
             color: white;
             border: none;
             cursor: pointer;
@@ -68,9 +66,9 @@
 
     <!-- Elemanları düzgün tutan esnek kutu -->
     <div class="form-alani">
-        <input type="text" id="ogrenciIsmi" placeholder="Öğrenci Adı Soyadı ">
+        <input type="text" id="ogrenciIsmi" height="12" width="10" placeholder="Öğrenci Adı Soyadı ">
         <input type="text" id="ogrenciSinifi" placeholder="Sınıfı">
-        <input type="number" id="ogrenciBagisi" placeholder="Bağış Miktarı">
+        <input type="number" id="ogrenciBagisi" placeholder="Bağış Miktarı"><br>
         
         <button onclick="ogrenciTanimla()">Gönder</button>
         <button onclick="bagislariGoster()">Bağışları Göster</button>
