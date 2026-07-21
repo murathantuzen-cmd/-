@@ -54,11 +54,9 @@
             border-radius: 4px;
             box-sizing: border-box;
             outline: none;
+            color: #000000; /* Şeffaflık hatası düzeltildi */
+            background-color: #ffffff;
         }
-
-        #ogrenciIsmi { color: #333333; background-color: #ffffff; }
-        #ogrenciSinifi { color: #2c3e50; background-color: #f8f9fa; }
-        #ogrenciBagisi { color: #000000; background-color: #ffffff; }
 
         /* BUTON STILLERI */
         #btnGonder, #btnGoster, #btnExcel {
@@ -66,7 +64,7 @@
             height: 42px;
             font-size: 14px;
             font-weight: bold;
-            color: #ffffff;
+            color: #ffffff; /* Okunabilirlik için beyaz yapıldı */
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -97,7 +95,6 @@
         <div>
             <button id="btnGonder" onclick="ogrenciTanimla()">Kaydet</button>
             <button id="btnGoster" onclick="bagislariGoster()">Bağışları Göster</button>
-            <!-- YENİ EKLENEN EXCEL BUTONU -->
             <button id="btnExcel" onclick="exceleAktar()">Excel'e Aktar</button>
         </div>
     </div>
