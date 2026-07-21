@@ -10,9 +10,15 @@ function toplamBagisiBul() {
 
 // 1. DÜZELTME: Diziden eleman silme ve LocalStorage'ı güncelleme
 function kayitSil(index) {
-    ogrenciler.splice(index, 1) // Seçilen indeksteki öğrenciyi diziden çıkarır
-    localStorage.setItem('ogrenciler', JSON.stringify(ogrenciler)) // LocalStorage'ı günceller
-    bagislariGoster() // Listeyi ekranda tekrar günceller
+    onaylandiMi = confirm("Emin misiniz!")
+    if (onaylandiMi){
+        ogrenciler.splice(index, 1) // Seçilen indeksteki öğrenciyi diziden çıkarır
+        localStorage.setItem('ogrenciler', JSON.stringify(ogrenciler)) // LocalStorage'ı günceller
+        bagislariGoster() // Listeyi ekranda tekrar günceller
+    } else {
+        alert("İşlem iptal edildi.")
+    }
+    
 }
 
 function temizle() {
@@ -94,7 +100,7 @@ function bagislariGoster() {
         yazdir("Sınıf : " + ogrenciler[i].sinif + "\r\nİsim : " + ogrenciler[i].isim + "\r\nBağış Miktarı : " + ogrenciler[i].bagis + " TL\r\nTarih : " + ogrenciler[i].tarih)
         
         // 4. DÜZELTME: Fonksiyonu () => kayitSil(i) şeklinde verdik ki anında çalışmasın
-        butonYazdir("Bu Öğrenciyi Sil", function() {
+        butonYazdir("Bağışı Sil", function() {
             kayitSil(i)
         })
         
