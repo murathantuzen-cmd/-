@@ -34,7 +34,7 @@
         }
 
         /* İÇ DİV'LER (Inputlar ve Butonlar Alt Alta) */
-        .form-alani > div {
+        .form-alani>div {
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -45,7 +45,9 @@
         }
 
         /* INPUT STILLERI */
-        #ogrenciIsmi, #ogrenciSinifi, #ogrenciBagisi {
+        #ogrenciIsmi,
+        #ogrenciSinifi,
+        #ogrenciBagisi {
             width: 180px;
             height: 42px;
             padding: 8px 12px;
@@ -54,31 +56,83 @@
             border-radius: 4px;
             box-sizing: border-box;
             outline: none;
-            color: #000000; /* Şeffaflık hatası düzeltildi */
+            color: #000000;
+            /* Şeffaflık hatası düzeltildi */
             background-color: #ffffff;
         }
 
         /* BUTON STILLERI */
-        #btnGonder, #btnGoster, #btnExcel {
+        #btnGonder,
+        #btnGoster,
+        #btnExcel {
             width: 180px;
             height: 42px;
             font-size: 14px;
             font-weight: bold;
-            color: #ffffff; /* Okunabilirlik için beyaz yapıldı */
+            color: #ffffff;
+            /* Okunabilirlik için beyaz yapıldı */
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
 
-        #btnGonder { background-color: #27ae60; }
-        #btnGonder:hover { background-color: #219150; }
+        /* Her bir bağış kaydının dikey/yatay düzeni */
+        .bagis-satiri {
+            display: flex;
+            justify-content: space-between;
+            /* Yazıyı sola, butonu en sağa yaslar */
+            align-items: center;
+            /* Dikeyde ortalar */
+            background-color: #f9f9f9;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #2980b9;
+            /* Sol tarafa mavi şerit ekler */
+            border-radius: 4px;
+            max-width: 500px;
+            /* Satırın çok uzamaması için */
+        }
 
-        #btnGoster { background-color: #2980b9; }
-        #btnGoster:hover { background-color: #1f6391; }
+        /* Yan Yana Duracak Sil Butonunun Stili */
+        .btn-tekli-sil {
+            background-color: #e74c3c;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-tekli-sil:hover {
+            background-color: #c0392b;
+        }
+
+        #btnGonder {
+            background-color: #27ae60;
+        }
+
+        #btnGonder:hover {
+            background-color: #219150;
+        }
+
+        #btnGoster {
+            background-color: #2980b9;
+        }
+
+        #btnGoster:hover {
+            background-color: #1f6391;
+        }
 
         /* EXCEL BUTONU STILI */
-        #btnExcel { background-color: #8e44ad; }
-        #btnExcel:hover { background-color: #71368a; }
+        #btnExcel {
+            background-color: #8e44ad;
+        }
+
+        #btnExcel:hover {
+            background-color: #71368a;
+        }
     </style>
 </head>
 
