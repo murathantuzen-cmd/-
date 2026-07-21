@@ -13,26 +13,28 @@
             background-color: #ffffff;
         }
 
-        /* Başlık ve Logoyu Yan Yana/Dikeyde Ortada Tutan Stil */
+        /* Başlık ve Logo */
         h1 {
             display: flex;
-            align-items: center; /* Resmi ve yazıyı dikeyde tam ortalar */
-            gap: 15px;           /* Yazı ile resim arasına boşluk koyar */
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
         }
 
-        /* Ana Kapsayıcı: İçindeki div'leri (satırları) alt alta dizer */
+        /* Ana Form Alanı */
         .form-alani {
             display: flex;
-            flex-direction: column; /* Div'lerin alt alta geçmesini sağlar */
-            gap: 15px;              /* Satırlar arasındaki boşluk */
+            flex-direction: column;
+            gap: 15px;
+            max-width: 250px; /* Elemanlar çok fazla uzamasın diye genişlik sınırı */
             margin-bottom: 20px;
         }
 
-        /* İç Div'ler: İçindeki input ve butonları yan yana tutar */
+        /* Input'ların ve Butonların Bulunduğu İç Div'ler */
         .form-alani > div {
             display: flex;
-            gap: 10px;              /* Yan yana elemanların arasındaki boşluk */
-            align-items: center;
+            flex-direction: column; /* İçindeki input ve butonları ALT ALTA dizer */
+            gap: 10px;               /* Elemanların arasındaki dikey boşluk */
         }
 
         #listeAlani {
@@ -41,7 +43,7 @@
 
         /* İSİM INPUT'U */
         #ogrenciIsmi {
-            width: 180px;
+            width: 100%;
             height: 42px;
             padding: 8px 12px;
             font-size: 14px;
@@ -53,13 +55,9 @@
             outline: none;
         }
 
-        .split-h1 {
-            white-space: pre-wrap;
-        }
-
         /* SINIF INPUT'U */
         #ogrenciSinifi {
-            width: 120px;
+            width: 100%;
             height: 42px;
             padding: 8px 12px;
             font-size: 14px;
@@ -73,8 +71,9 @@
 
         /* BAĞIŞ INPUT'U */
         #ogrenciBagisi {
-            width: 160px;
+            width: 100%;
             height: 42px;
+            padding: 8px 12px;
             font-size: 14px;
             color: #000000;
             background-color: #ffffff;
@@ -86,7 +85,7 @@
 
         /* GÖNDER BUTONU */
         #btnGonder {
-            width: 100px;
+            width: 100%;
             height: 42px;
             font-size: 14px;
             font-weight: bold;
@@ -103,7 +102,7 @@
 
         /* BAĞIŞLARI GÖSTER BUTONU */
         #btnGoster {
-            width: 150px;
+            width: 100%;
             height: 42px;
             font-size: 14px;
             font-weight: bold;
@@ -120,7 +119,7 @@
 
         /* TÜM VERİLERİ SİL BUTONU */
         #btnSil {
-            width: 160px;
+            width: 100%;
             height: 42px;
             font-size: 14px;
             font-weight: bold;
@@ -139,19 +138,22 @@
 
 <body>
 
-    <h1><img src="asus.jpeg" alt="ASÜS Logo" width="150">ASÜS İlkokuklu<br>Okul Aile Birliği<br>Bağış Takip Sistemi</h1>
+    <h1>ASÜS İlkokul Okul Aile Birliği Bağış Takip Sistemi <img src="asus.jpeg" alt="ASÜS Logo" width="100"></h1>
 
     <div class="form-alani">
+        <!-- Inputlar Alt Alta -->
         <div>
-            <input margin-bottom: 30px; type="text" id="ogrenciIsmi" placeholder="Öğrencinin Adı Soyadı"br>
-            <input margin-bottom: 30px; type="text" id="ogrenciSinifi" placeholder="Sınıfı">
-            <input margin-bottom: 30px; type="number" id="ogrenciBagisi" placeholder=" Bağış Miktarı"br>
-        </div>
-        <div>
-            <button margin-bottom: 30px; id="btnGoster" onclick="bagislariGoster()">Bağışları Göster</button>
-            <button margin-bottom: 30px; id="btnGonder" onclick="ogrenciTanimla()">Gönder</button>
+            <input type="text" id="ogrenciIsmi" placeholder="Öğrencinin Adı Soyadı">
+            <input type="text" id="ogrenciSinifi" placeholder="Sınıfı">
+            <input type="number" id="ogrenciBagisi" placeholder="Bağış Miktarı">
         </div>
         
+        <!-- Butonlar Alt Alta -->
+        <div>
+            <button id="btnGoster" onclick="bagislariGoster()">Bağışları Göster</button>
+            <button id="btnGonder" onclick="ogrenciTanimla()">Gönder</button>
+            <button id="btnSil" onclick="verileriSil()">Tüm Verileri Sil</button>
+        </div>
     </div>
 
     <hr>
