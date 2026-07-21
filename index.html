@@ -26,7 +26,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            max-width: 200px; /* Elemanların hizalı durması için genişlik */
+            max-width: 200px;
             margin-bottom: 20px;
         }
 
@@ -57,7 +57,7 @@
 
         /* SINIF INPUT'U */
         #ogrenciSinifi {
-            width: 180px; /* Bütünlük için isim inputu ile eşitlendi */
+            width: 180px;
             height: 42px;
             padding: 8px 12px;
             font-size: 14px;
@@ -71,7 +71,7 @@
 
         /* BAĞIŞ INPUT'U */
         #ogrenciBagisi {
-            width: 180px; /* Bütünlük için isim inputu ile eşitlendi */
+            width: 180px;
             height: 42px;
             font-size: 14px;
             color: #000000;
@@ -115,23 +115,6 @@
         #btnGoster:hover {
             background-color: #1f6391;
         }
-
-        /* TÜM VERİLERİ SİL BUTONU */
-        #btnSil {
-            width: 160px;
-            height: 42px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #e74c3c;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        #btnSil:hover {
-            background-color: #c0392b;
-        }
     </style>
 </head>
 
@@ -146,10 +129,10 @@
             <input type="number" id="ogrenciBagisi" placeholder=" Bağış Miktarı">
         </div>
         <div>
-            <button id="btnGoster" onclick="bagislariGoster()">Bağışları Göster</button>
+            <!-- Önce Gönder (Kaydet), Sonra Bağışları Göster -->
             <button id="btnGonder" onclick="ogrenciTanimla()">Gönder</button>
+            <button id="btnGoster" onclick="bagislariGoster()">Bağışları Göster</button>
         </div>
-        
     </div>
 
     <hr>
