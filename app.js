@@ -97,7 +97,7 @@ function bagislariGoster() {
     yazdir("----------------------------------------")
 
     for (let i = 0; i < ogrenciler.length; i++) {
-        yazdir("Sınıf : " + ogrenciler[i].sinif + "\r\nİsim : " + ogrenciler[i].isim + "\r\nBağış Miktarı : " + ogrenciler[i].bagis + " TL\r\nTarih : " + ogrenciler[i].tarih)
+        yazdir("Sınıf : " + ogrenciler[i].sinif + " | İsim : " + ogrenciler[i].isim + " | Bağış Miktarı : " + ogrenciler[i].bagis + " TL | Tarih : " + ogrenciler[i].tarih)
         
         // 4. DÜZELTME: Fonksiyonu () => kayitSil(i) şeklinde verdik ki anında çalışmasın
         butonYazdir("Bağışı Sil", function() {
