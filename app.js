@@ -114,3 +114,29 @@ function verileriSil() {
     ogrenciler = []
     alert("Tüm kayıtlar başarıyla silindi!")
 }
+// Mevcut JS kodlarının altına bu fonksiyonu ekle:
+
+function exceleAktar() {
+    if (ogrenciler.length === 0) {
+        alert("Excel'e aktarılacak kayıt bulunamadı!");
+        return;
+    }
+
+    // 1. Excel tablosunda görünecek başlıkları ve verileri düzenliyoruz
+    let excelVerisi = ogrenciler.map(function(item) {
+        return {
+            "Sınıfı": item.sinif,
+            "Adı Soyadı": item.isim,
+            "Bağış Miktarı (TL)": item.bagis,
+            "Tarih": item.tarih
+        };
+    });
+
+    // 2. Verileri SheetJS formatına dönüştürüyoruz
+    let calismaSayfasi = XLSX.utils.json_to_sheet(excelVerisi);
+    let calismaKitabi = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(calismaKitabi, calismaSayfasi, "Bağış Listesi");
+
+    // 3. Dosyayı indiriyoruz
+    XLSX.writeFile(calismaKitabi, "OAB_Bagis_Listesi.xlsx");
+}
