@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OAB Bağış Programı</title>
 
+    <!-- Excel Kütüphanesi (SheetJS) -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,105 +36,69 @@
         /* İÇ DİV'LER (Inputlar ve Butonlar Alt Alta) */
         .form-alani > div {
             display: flex;
-            flex-direction: column; /* İçindekileri alt alta dizer */
-            gap: 10px;               /* Elemanlar arasındaki boşluk */
+            flex-direction: column;
+            gap: 10px;
         }
 
         #listeAlani {
             margin-top: 20px;
         }
 
-        /* İSİM INPUT'U */
-        #ogrenciIsmi {
+        /* INPUT STILLERI */
+        #ogrenciIsmi, #ogrenciSinifi, #ogrenciBagisi {
             width: 180px;
             height: 42px;
             padding: 8px 12px;
             font-size: 14px;
-            color: #333333;
-            background-color: #ffffff;
             border: 2px solid #000000;
             border-radius: 4px;
             box-sizing: border-box;
             outline: none;
         }
 
-        /* SINIF INPUT'U */
-        #ogrenciSinifi {
-            width: 180px;
-            height: 42px;
-            padding: 8px 12px;
-            font-size: 14px;
-            color: #2c3e50;
-            background-color: #f8f9fa;
-            border: 2px solid #000000;
-            border-radius: 4px;
-            box-sizing: border-box;
-            outline: none;
-        }
+        #ogrenciIsmi { color: #333333; background-color: #ffffff; }
+        #ogrenciSinifi { color: #2c3e50; background-color: #f8f9fa; }
+        #ogrenciBagisi { color: #000000; background-color: #ffffff; }
 
-        /* BAĞIŞ INPUT'U */
-        #ogrenciBagisi {
-            width: 180px;
-            height: 42px;
-            font-size: 14px;
-            color: #000000;
-            background-color: #ffffff;
-            border: 2px solid #000000;
-            border-radius: 4px;
-            box-sizing: border-box;
-            outline: none;
-        }
-
-        /* GÖNDER BUTONU */
-        #btnGonder {
+        /* BUTON STILLERI */
+        #btnGonder, #btnGoster, #btnExcel {
             width: 180px;
             height: 42px;
             font-size: 14px;
             font-weight: bold;
             color: #ffffff;
-            background-color: #27ae60;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
 
-        #btnGonder:hover {
-            background-color: #219150;
-        }
+        #btnGonder { background-color: #27ae60; }
+        #btnGonder:hover { background-color: #219150; }
 
-        /* BAĞIŞLARI GÖSTER BUTONU */
-        #btnGoster {
-            width: 180px;
-            height: 42px;
-            font-size: 14px;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #2980b9;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
+        #btnGoster { background-color: #2980b9; }
+        #btnGoster:hover { background-color: #1f6391; }
 
-        #btnGoster:hover {
-            background-color: #1f6391;
-        }
+        /* EXCEL BUTONU STILI */
+        #btnExcel { background-color: #8e44ad; }
+        #btnExcel:hover { background-color: #71368a; }
     </style>
 </head>
 
 <body>
 
-    <h1>ASÜS İlkokuklu Okul Aile Birliği Bağış Takip Sistemi<img src="asus.jpeg" alt="ASÜS Logo" width="100"></h1>
+    <h1>ASÜS İlkokulu Okul Aile Birliği Bağış Takip Sistemi<img src="asus.jpeg" alt="ASÜS Logo" width="100"></h1>
 
     <div class="form-alani">
         <div>
             <input type="text" id="ogrenciIsmi" placeholder="Öğrencinin Adı Soyadı">
             <input type="text" id="ogrenciSinifi" placeholder="Sınıfı">
-            <input type="number" id="ogrenciBagisi" placeholder=" Bağış Miktarı">
+            <input type="number" id="ogrenciBagisi" placeholder="Bağış Miktarı">
         </div>
         <div>
-            <!-- Önce Gönder (Kaydet), Sonra Bağışları Göster -->
             <button id="btnGonder" onclick="ogrenciTanimla()">Kaydet</button>
             <button id="btnGoster" onclick="bagislariGoster()">Bağışları Göster</button>
+            <!-- YENİ EKLENEN EXCEL BUTONU -->
+            <button id="btnExcel" onclick="exceleAktar()">Excel'e Aktar</button>
         </div>
     </div>
 
