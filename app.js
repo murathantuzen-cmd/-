@@ -96,15 +96,34 @@ function bagislariGoster() {
     yazdir("Toplam Bağış Miktarı : " + toplamBagis + " TL")
     yazdir("----------------------------------------")
 
+    let liste = document.getElementById("listeAlani")
+
     for (let i = 0; i < ogrenciler.length; i++) {
-        yazdir("Sınıf : " + ogrenciler[i].sinif + " | İsim : " + ogrenciler[i].isim + " | Bağış Miktarı : " + ogrenciler[i].bagis + " TL | Tarih : " + ogrenciler[i].tarih)
-        
-        // 4. DÜZELTME: Fonksiyonu () => kayitSil(i) şeklinde verdik ki anında çalışmasın
-        butonYazdir("Bağışı Sil", function() {
+        // 1. Bilgiler ve Buton için Satır Kutusu Oluşturuyoruz
+        let satirKutusu = document.createElement("div")
+        satirKutusu.className = "bagis-satiri" // CSS için sınıf verdik
+
+        // 2. Sol Taraf (Öğrenci Bilgileri)
+        let bilgiYazisi = document.createElement("div")
+        bilgiYazisi.innerHTML = "<b>Sınıf:</b> " + ogrenciler[i].sinif + 
+                                " | <b>İsim:</b> " + ogrenciler[i].isim + 
+                                " | <b>Bağış:</b> " + ogrenciler[i].bagis + " TL" +
+                                "<br><small style='color: #666;'>" + ogrenciler[i].tarih + "</small>"
+
+        // 3. Sağ Taraf (Sil Butonu)
+        let silButonu = document.createElement("button")
+        silButonu.innerText = "Bağışı Sil"
+        silButonu.className = "btn-tekli-sil"
+        silButonu.onclick = function() {
             kayitSil(i)
-        })
-        
-        yazdir("----------------------------------------")
+        }
+
+        // 4. Parçaları Kutunun İçine Ekle
+        satirKutusu.appendChild(bilgiYazisi)
+        satirKutusu.appendChild(silButonu)
+
+        // 5. Satır Kutusunu Ana Listeye Ekle
+        liste.appendChild(satirKutusu)
     }
 }
 
