@@ -6,73 +6,128 @@
     <title>OAB Bağış Programı</title>
     
     <style>
-        /* Genel sayfa stili */
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            background-color: #5dffff;
-        }
-        input, button {
-            padding: 10px 14px;
-            font-size: 14px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            margin: 4px;
-        }
-        input:focus {
-            border-color: #0044ff;
-            outline: none;
+            background-color: #f4f6f9;
         }
 
-        /* Buton stilleri */
-        button {
-            background-color: #15ff00;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Kırmızı Sil Butonu */
-        .btn-sil {
-            background-color: #dc3545;
-        }
-
-        .btn-sil:hover {
-            background-color: #a71d2a;
-        }
-
-        /* Form elemanlarını hizalayan ana kapsayıcı */
         .form-alani {
             display: flex;
-            flex-wrap: wrap; /* Ekran daralırsa alt satıra otomatik geçer */
-            gap: 10px; /* Elemanların tam arasındaki boşluk */
+            flex-wrap: wrap;
+            gap: 10px;
             margin-bottom: 20px;
         }
 
-        /* Çıktıların yazdırılacağı liste alanı */
         #listeAlani {
             margin-top: 20px;
+        }
+
+        /* İSİM INPUT'U */
+        #ogrenciIsmi {
+            width: 180px;
+            height: 42px;
+            padding: 8px 12px;
+            font-size: 14px;
+            color: #333333;
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        /* SINIF INPUT'U */
+        #ogrenciSinifi {
+            width: 120px;
+            height: 42px;
+            padding: 8px 12px;
+            font-size: 14px;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+            border: 2px solid #000000;
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        /* BAĞIŞ INPUT'U */
+        #ogrenciBagisi {
+            width: 160px;
+            height: 42px;
+            font-size: 14px;
+            color: #000000;
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 4px;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        /* GÖNDER BUTONU */
+        #btnGonder {
+            width: 100px;
+            height: 42px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #27ae60;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #btnGonder:hover {
+            background-color: #219150;
+        }
+
+        /* BAĞIŞLARI GÖSTER BUTONU */
+        #btnGoster {
+            width: 150px;
+            height: 42px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #2980b9;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #btnGoster:hover {
+            background-color: #1f6391;
+        }
+
+        /* TÜM VERİLERİ SİL BUTONU */
+        #btnSil {
+            width: 160px;
+            height: 42px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #e74c3c;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #btnSil:hover {
+            background-color: #c0392b;
         }
     </style>
 </head>
 <body>
 
-    <h2>OAB Bağış Takip Sistemi</h2>
+    <h2>ASÜS İlkokuklu Okul Aile Birliği Bağışlar</h2>
 
-    <!-- Elemanları düzgün tutan esnek kutu -->
     <div class="form-alani">
-        <input type="text" id="ogrenciIsmi" height="12" width="10" placeholder="Öğrenci Adı Soyadı ">
+        <input type="text" id="ogrenciIsmi" placeholder="Öğrencinin Adı Soyadı">
         <input type="text" id="ogrenciSinifi" placeholder="Sınıfı">
-        <input type="number" id="ogrenciBagisi" placeholder="Bağış Miktarı"><br>
+        <input type="number" id="ogrenciBagisi" placeholder=" Bağış Miktarı">
         
-        <button onclick="ogrenciTanimla()">Gönder</button>
-        <button onclick="bagislariGoster()">Bağışları Göster</button>
-        <button class="btn-sil" onclick="verileriSil()">Tüm Verileri Sil</button>
+        <button id="btnGonder" onclick="ogrenciTanimla()">Gönder</button>
+        <button id="btnGoster" onclick="bagislariGoster()">Bağışları Göster</button>
+        <button id="btnSil" onclick="verileriSil()">Tüm Verileri Sil</button>
     </div>
 
     <hr>
