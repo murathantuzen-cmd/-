@@ -13,28 +13,28 @@
             background-color: #ffffff;
         }
 
-        /* Başlık ve Logo */
+        /* BAŞLIK VE LOGO */
         h1 {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
-        /* Ana Form Alanı */
+        /* ANA FORM ALANI */
         .form-alani {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            max-width: 250px; /* Elemanlar çok fazla uzamasın diye genişlik sınırı */
+            max-width: 200px; /* Elemanların hizalı durması için genişlik */
             margin-bottom: 20px;
         }
 
-        /* Input'ların ve Butonların Bulunduğu İç Div'ler */
+        /* İÇ DİV'LER (Inputlar ve Butonlar Alt Alta) */
         .form-alani > div {
             display: flex;
-            flex-direction: column; /* İçindeki input ve butonları ALT ALTA dizer */
-            gap: 10px;               /* Elemanların arasındaki dikey boşluk */
+            flex-direction: column; /* İçindekileri alt alta dizer */
+            gap: 10px;               /* Elemanlar arasındaki boşluk */
         }
 
         #listeAlani {
@@ -43,7 +43,7 @@
 
         /* İSİM INPUT'U */
         #ogrenciIsmi {
-            width: 100%;
+            width: 180px;
             height: 42px;
             padding: 8px 12px;
             font-size: 14px;
@@ -57,7 +57,7 @@
 
         /* SINIF INPUT'U */
         #ogrenciSinifi {
-            width: 100%;
+            width: 180px; /* Bütünlük için isim inputu ile eşitlendi */
             height: 42px;
             padding: 8px 12px;
             font-size: 14px;
@@ -71,9 +71,8 @@
 
         /* BAĞIŞ INPUT'U */
         #ogrenciBagisi {
-            width: 100%;
+            width: 180px; /* Bütünlük için isim inputu ile eşitlendi */
             height: 42px;
-            padding: 8px 12px;
             font-size: 14px;
             color: #000000;
             background-color: #ffffff;
@@ -85,7 +84,7 @@
 
         /* GÖNDER BUTONU */
         #btnGonder {
-            width: 100%;
+            width: 180px;
             height: 42px;
             font-size: 14px;
             font-weight: bold;
@@ -102,7 +101,7 @@
 
         /* BAĞIŞLARI GÖSTER BUTONU */
         #btnGoster {
-            width: 100%;
+            width: 180px;
             height: 42px;
             font-size: 14px;
             font-weight: bold;
@@ -119,7 +118,7 @@
 
         /* TÜM VERİLERİ SİL BUTONU */
         #btnSil {
-            width: 100%;
+            width: 160px;
             height: 42px;
             font-size: 14px;
             font-weight: bold;
@@ -138,22 +137,19 @@
 
 <body>
 
-    <h1>ASÜS İlkokul Okul Aile Birliği Bağış Takip Sistemi <img src="asus.jpeg" alt="ASÜS Logo" width="100"></h1>
+    <h1>ASÜS İlkokuklu Okul Aile Birliği Bağış Takip Sistemi<img src="asus.jpeg" alt="ASÜS Logo" width="100"></h1>
 
     <div class="form-alani">
-        <!-- Inputlar Alt Alta -->
         <div>
             <input type="text" id="ogrenciIsmi" placeholder="Öğrencinin Adı Soyadı">
             <input type="text" id="ogrenciSinifi" placeholder="Sınıfı">
-            <input type="number" id="ogrenciBagisi" placeholder="Bağış Miktarı">
+            <input type="number" id="ogrenciBagisi" placeholder=" Bağış Miktarı">
         </div>
-        
-        <!-- Butonlar Alt Alta -->
         <div>
             <button id="btnGoster" onclick="bagislariGoster()">Bağışları Göster</button>
             <button id="btnGonder" onclick="ogrenciTanimla()">Gönder</button>
-            <button id="btnSil" onclick="verileriSil()">Tüm Verileri Sil</button>
         </div>
+        
     </div>
 
     <hr>
