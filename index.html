@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OAB Bağış Programı</title>
-    
+
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
-            background-color: #f4f6f9;
+            background-color: #ffffff;
         }
 
+        /* Başlık ve Logoyu Yan Yana/Dikeyde Ortada Tutan Stil */
+        h1 {
+            display: flex;
+            align-items: center; /* Resmi ve yazıyı dikeyde tam ortalar */
+            gap: 15px;           /* Yazı ile resim arasına boşluk koyar */
+        }
+
+        /* Ana Kapsayıcı: İçindeki div'leri (satırları) alt alta dizer */
         .form-alani {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-direction: column; /* Div'lerin alt alta geçmesini sağlar */
+            gap: 15px;              /* Satırlar arasındaki boşluk */
             margin-bottom: 20px;
+        }
+
+        /* İç Div'ler: İçindeki input ve butonları yan yana tutar */
+        .form-alani > div {
+            display: flex;
+            gap: 10px;              /* Yan yana elemanların arasındaki boşluk */
+            align-items: center;
         }
 
         #listeAlani {
@@ -116,18 +132,22 @@
         }
     </style>
 </head>
+
 <body>
 
-    <h2>ASÜS İlkokuklu Okul Aile Birliği Bağış Takip Sistemi</h2>
+    <h1><img src="asus.jpeg" alt="ASÜS Logo" width="150">ASÜS İlkokuklu<br>Okul Aile Birliği<br>Bağış Takip Sistemi</h1>
 
     <div class="form-alani">
-        <input type="text" id="ogrenciIsmi" placeholder="Öğrencinin Adı Soyadı">
-        <input type="text" id="ogrenciSinifi" placeholder="Sınıfı">
-        <input type="number" id="ogrenciBagisi" placeholder=" Bağış Miktarı">
+        <div>
+            <input type="text" id="ogrenciIsmi" placeholder="Öğrencinin Adı Soyadı">
+            <input type="text" id="ogrenciSinifi" placeholder="Sınıfı">
+            <input type="number" id="ogrenciBagisi" placeholder=" Bağış Miktarı">
+        </div>
+        <div>
+            <button id="btnGoster" onclick="bagislariGoster()">Bağışları Göster</button>
+            <button id="btnGonder" onclick="ogrenciTanimla()">Gönder</button>
+        </div>
         
-        <button id="btnGonder" onclick="ogrenciTanimla()">Gönder</button>
-        <button id="btnGoster" onclick="bagislariGoster()">Bağışları Göster</button>
-        <button id="btnSil" onclick="verileriSil()">Tüm Verileri Sil</button>
     </div>
 
     <hr>
@@ -136,4 +156,5 @@
 
     <script src="app.js"></script>
 </body>
+
 </html>
